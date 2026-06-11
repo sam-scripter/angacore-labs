@@ -1,3 +1,5 @@
+// SystemsSection.tsx
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -50,8 +52,8 @@ export function SystemsSection() {
 
             <p className="text-muted-foreground text-lg mb-8">
               Custom-built operational systems for businesses that need more than
-              spreadsheets. From fleet management to resource tracking, we build
-              platforms that give you complete visibility and control.
+              spreadsheets. From recruitment platforms to asset management systems,
+              we build software that gives your team complete visibility and control.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-6 mb-10">

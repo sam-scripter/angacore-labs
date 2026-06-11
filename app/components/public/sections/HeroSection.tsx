@@ -1,3 +1,5 @@
+// HeroSection.tsx
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -46,12 +48,12 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-4"
           >
-            From fleet management platforms to brand strategy, we create technology
-            and growth systems that help founders and businesses scale with clarity
-            and confidence.
+            We build custom software and AI-powered automation for businesses that
+            have outgrown their current tools — and we run our own company on the
+            same infrastructure we build for clients.
           </motion.p>
           <p className="sr-only" id="what-is-angacore-labs">
-            AngaCore Labs is a technology company in Nairobi, Kenya, that builds operational systems for fleet management and business operations and provides growth and branding strategy through AngaNova.
+            AngaCore Labs is an AI-native software and automation company in Nairobi, Kenya. We build custom software, operational systems, and AI-powered workflows for businesses that have outgrown their current tools.
           </p>
 
           <motion.div

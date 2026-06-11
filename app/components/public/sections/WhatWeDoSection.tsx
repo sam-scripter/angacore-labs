@@ -1,3 +1,5 @@
+// WhatWeDoSection.tsx
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -36,7 +38,7 @@ const pillars = [
     icon: Sparkles,
     title: "Design & AI",
     description:
-      "We streamline operations with intelligent automation.",
+      "We build intelligent automations and AI workflows that eliminate manual overhead.",
     items: [
       "AI assistants & chatbots",
       "Workflow automation",
