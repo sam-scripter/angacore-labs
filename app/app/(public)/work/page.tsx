@@ -12,51 +12,51 @@ import { ParticleNetwork } from "@/components/three/ParticleNetwork";
 const projects = [
     {
         id: 1,
-        title: 'Fleet Command UI',
-        description: 'Real-time logistics dashboard with interactive mapping and fuel analytics.',
-        tags: ['React', 'Leaflet', 'Logistics', 'TypeScript'],
+        title: 'KSG ICT Platform',
+        description: 'Full internal ICT management system for Kenya School of Government — asset lifecycle, service desk with SLA tracking, and AI-assisted recruitment.',
+        tags: ['React', 'Node.js', 'PostgreSQL', 'Socket.io', 'Docker'],
         theme: 'primary',
-        slug: 'fleet-command'
+        slug: 'ksg-ict-platform'
     },
     {
         id: 2,
-        title: 'Retail Connect',
-        description: 'Intelligent Inventory & POS System for multi-location businesses.',
-        tags: ['React', 'Node.js', 'POS', 'Enterprise'],
+        title: 'Uasin Gishu Fleet System',
+        description: 'Integrated Vehicle Management System replacing paper-based fuel and repair requisition for a county government fleet. Route-based fuel quotas via Google Maps API.',
+        tags: ['Flutter', 'Django', 'Python', 'PostgreSQL', 'Google Maps API'],
         theme: 'primary',
-        slug: 'retail-connect'
+        slug: 'uasin-gishu-fleet'
     },
     {
         id: 3,
-        title: 'Food Baze',
-        description: 'Direct Farm-to-Hotel supply network eliminating brokers and reducing waste.',
-        tags: ['Mobile App', 'Agri-Tech', 'Logistics'],
-        theme: 'accent',
-        slug: 'food-baze'
+        title: 'IVY Community Wardrobe',
+        description: 'Cross-platform vendor management with real-time inventory tracking and a Computer Vision Measurement API using OpenPose for virtual fashion fitting.',
+        tags: ['Flutter', 'Django', 'Python', 'OpenPose', 'Firebase'],
+        theme: 'primary',
+        slug: 'ivy-wardrobe'
     },
     {
         id: 4,
-        title: 'Anga Nova Launch',
-        description: 'Brand launch campaign leveraging AI-driven audience targeting and dynamic creative.',
-        tags: ['AI', 'Marketing', 'Branding'],
+        title: 'Stratum',
+        description: 'AI-powered personal finance tracker for Android. Automatically reads M-Pesa SMS notifications, parses every transaction, and generates monthly AI financial analysis.',
+        tags: ['Flutter', 'Dart', 'OpenAI', 'Android', 'M-Pesa'],
         theme: 'accent',
-        slug: 'anga-nova-launch'
+        slug: 'stratum'
     },
     {
         id: 5,
-        title: 'EduPortal System',
-        description: 'Comprehensive school management platform serving 50+ institutions.',
-        tags: ['Education', 'React', 'Node.js'],
+        title: 'Number Your Days',
+        description: 'Journaling app with tiered AI analysis. Daily insights via Gemini Flash, monthly and yearly synthesis via Gemini Pro. 98% token reduction via summarisation chaining.',
+        tags: ['Flutter', 'Firebase', 'Gemini AI', 'Android'],
         theme: 'primary',
-        slug: 'edu-portal'
+        slug: 'number-your-days'
     },
     {
         id: 6,
-        title: 'Growth Dashboard',
-        description: 'Marketing analytics platform with real-time performance metrics.',
-        tags: ['Analytics', 'Dashboard', 'D3.js'],
+        title: 'mydrop',
+        description: 'Real-time delivery tracking platform for Kenyan SMEs. Manager to rider to customer tracking flow with PIN confirmation on delivery.',
+        tags: ['Node.js', 'PostgreSQL', 'React', 'Real-time'],
         theme: 'accent',
-        slug: 'growth-dashboard'
+        slug: 'mydrop'
     },
 ];
 
@@ -82,6 +82,7 @@ const getThemeClasses = (theme: string) => {
             };
     }
 };
+
 
 const Work = () => {
     return (
@@ -115,8 +116,8 @@ const Work = () => {
                                 Our <span className="text-primary">Work</span>
                             </h1>
                             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                                A showcase of systems built and campaigns launched.
-                                Every project tells a story of transformation.
+                                Production systems built for real institutions and real users.
+                                Every project is live, shipped, and solving an actual problem.
                             </p>
                         </motion.div>
                     </div>
@@ -189,10 +190,10 @@ const Work = () => {
                             className="max-w-2xl mx-auto"
                         >
                             <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
-                                Let's Create Something Amazing
+                                Have a System to Build?
                             </h2>
                             <p className="text-muted-foreground mb-8 text-lg">
-                                Have a project in mind? We'd love to hear about it and explore how we can help bring your vision to life.
+                                Tell us about your operational challenge. We'll tell you how we'd build the system to fix it.
                             </p>
                             <Button size="lg" asChild>
                                 <Link href="/contact">
@@ -208,5 +209,6 @@ const Work = () => {
         </div>
     );
 };
+
 
 export default Work;

@@ -2,228 +2,233 @@ import { Truck, Smartphone, BarChart3, ShieldCheck, Map, Zap, Layers, Users, Cpu
 
 export const caseStudies = [
     {
-        id: 'fleet-command',
-        title: 'Fleet Command UI',
-        subtitle: 'Logistics Intelligence Platform',
-        category: 'Enterprise System',
-        tags: ['React', 'Leaflet', 'TypeScript', 'Real-time'],
-        theme: 'primary', // mapped from 'cyan' to 'primary' for this project's theme
+        id: 'uasin-gishu-fleet',
+        title: 'Uasin Gishu Fleet System',
+        subtitle: 'Integrated Vehicle Management System',
+        category: 'Government System',
+        tags: ['Flutter', 'Django', 'Python', 'PostgreSQL', 'Google Maps API'],
+        theme: 'primary',
         heroImage: 'bg-gradient-to-br from-primary/20 to-background',
-        summary: 'A unified digital command center that eliminates operational blind spots. By combining a real-time HQ dashboard with a driver mobile app, Fleet Command integrates fuel monitoring, route optimization, and asset tracking into a single source of truth.',
+        summary: 'Replaced a fully paper-based fuel and repair requisition process across the Uasin Gishu County Government fleet. Google Maps API integration calculates route-based fuel quotas directly, closing the loop on fuel theft. Every vehicle request, approval, and fuel allocation is now digitally tracked end to end.',
         stats: [
-            { label: 'Revenue Leakage Prevented', value: '15%', icon: ShieldCheck },
-            { label: 'Asset Visibility', value: '100%', icon: Map },
-            { label: 'Maintenance Cycles', value: 'Optimized', icon: Zap },
+            { label: 'Fuel Theft Mitigated', value: 'Direct', icon: ShieldCheck },
+            { label: 'Approval Chain', value: 'Fully Digital', icon: Zap },
+            { label: 'Vehicles Tracked', value: 'Full Fleet', icon: Map },
         ],
         challenges: [
-            "Operational blind spots leading to fuel theft and unverified stops.",
-            "Manual, paper-based reporting causing data delays and inaccuracies.",
-            "Inability to track vehicle health in real-time, leading to costly breakdowns.",
-            "Disconnected communication between HQ managers and field drivers."
+            "Fuel theft was rampant with no way to verify actual fuel usage against routes driven.",
+            "Repair and fuel requests were fully paper-based, creating approval delays and no audit trail.",
+            "Fleet managers had zero real-time visibility into vehicle locations or status.",
+            "The entire approval chain from driver request to fleet manager sign-off was manual and untracked."
         ],
         solutions: [
             {
-                title: 'The God View (HQ Dashboard)',
-                description: 'Total operational visibility. Managers can track the live location, speed, and status of over 500+ assets in a single interface. Alerts for route deviation or unauthorized stops are generated instantly.',
+                title: 'Route-Based Fuel Quotas',
+                description: 'Google Maps API calculates the expected fuel consumption for each trip based on actual route distance. Drivers can only request fuel within their calculated quota, directly preventing over-claiming and theft.',
                 icon: Map
             },
             {
-                title: 'The Shield (Driver App)',
-                description: 'Fraud-proof resource management. Drivers request fuel and repairs directly through the app. Every liter of fuel is logged and verified against mileage, closing the loop on theft.',
-                icon: Smartphone
+                title: 'Digital Approval Chain',
+                description: 'Every fuel and repair request flows through a structured digital approval chain — driver submits, fleet manager reviews, approves or rejects — with a full audit trail for every decision.',
+                icon: ShieldCheck
             },
             {
-                title: 'The Pulse (Analytics Engine)',
-                description: 'Data-driven decision making. Automated reports on fuel efficiency, driver performance, and fleet utilization help identifying cost-saving opportunities.',
+                title: 'Fleet Dashboard',
+                description: 'Fleet managers get a live dashboard showing all active requests, vehicle status, fuel consumption history, and repair records. Paper registers replaced entirely.',
                 icon: BarChart3
             }
         ]
     },
     {
-        id: 'anga-nova-launch',
-        title: 'Anga Nova Launch',
-        subtitle: 'The First AI-Adaptive Brand Campaign',
-        category: 'Marketing & AI',
-        tags: ['GenAI', 'Programmatic', 'Branding'],
-        theme: 'accent', // mapped from 'orange' to 'accent'
-        heroImage: 'bg-gradient-to-br from-accent/20 to-background',
-        summary: 'We didn\'t just launch a brand; we built a living system. By leveraging generative AI and real-time sentiment analysis, we created a campaign that evolved its visuals and messaging based on audience interaction, achieving unprecedented engagement.',
+        id: 'ksg-ict-platform',
+        title: 'KSG ICT Platform',
+        subtitle: 'Internal ICT Management System',
+        category: 'Government System',
+        tags: ['React', 'Node.js', 'PostgreSQL', 'Socket.io', 'Docker'],
+        theme: 'primary',
+        heroImage: 'bg-gradient-to-br from-primary/20 to-background',
+        summary: 'Full internal ICT management system for Kenya School of Government replacing a manual, spreadsheet-based operation. Covers the complete asset lifecycle from procurement to retirement, a service desk with SLA tracking and real-time notifications, and a digital recruitment system with AI-assisted candidate screening.',
         stats: [
-            { label: 'Creative Variants', value: '12,000+', icon: Palette },
-            { label: 'Engagement Uplift', value: '400%', icon: Zap },
-            { label: 'Conversion Cost', value: '-60%', icon: Target },
+            { label: 'Asset Tracking', value: 'Full Lifecycle', icon: ShieldCheck },
+            { label: 'SLA Compliance', value: 'Tracked Live', icon: Activity },
+            { label: 'Screening', value: 'AI-Assisted', icon: Zap },
         ],
         challenges: [
-            "Static Fatigue: Traditional banner ads were seeing diminishing returns due to audience saturation.",
-            "Hyper-Segmentation: We needed to speak to 5 distinct personas (Founders, Investors, Engineers, etc.) simultaneously.",
-            "Speed to Market: The campaign needed to launch across 3 distinct regions (Nairobi, Lagos, Cape Town) in under 2 weeks."
+            "All ICT assets were tracked in spreadsheets with no lifecycle visibility from procurement to retirement.",
+            "Service desk requests were managed manually with no SLA tracking, escalation workflows, or accountability.",
+            "The recruitment process was fully paper-based — document verification, candidate screening, and approvals all manual.",
+            "Staff had no visibility into request status, asset assignments, or service timelines."
         ],
         solutions: [
             {
-                title: 'The Generative Core',
-                description: 'We trained a custom LoRA model on the brand\'s aesthetic to generate infinite high-fidelity 3D assets on demand. this ensured visual consistency while removing the human bottleneck in asset production.',
+                title: 'Asset Lifecycle Management',
+                description: 'Every ICT asset is tracked from procurement through assignment, maintenance, and eventual retirement. Role-based access ensures staff see only what is relevant to them, while administrators have full visibility.',
+                icon: Layers
+            },
+            {
+                title: 'Service Desk with SLA Tracking',
+                description: 'Staff submit service requests through a structured portal. Each request is assigned an SLA, escalated automatically if breached, and resolved with a full audit trail. Real-time Socket.io notifications keep staff informed at every step.',
+                icon: Bell
+            },
+            {
+                title: 'AI-Assisted Recruitment',
+                description: 'Candidates apply through a digital portal with automated document completeness checks. GPT-4o assists with initial screening, flagging qualified candidates for human review and reducing manual screening time significantly.',
+                icon: Users
+            }
+        ]
+    },
+    {
+        id: 'ivy-wardrobe',
+        title: 'IVY Community Wardrobe',
+        subtitle: 'Fashion Tech Platform with Computer Vision',
+        category: 'Fashion Tech',
+        tags: ['Flutter', 'Django', 'Python', 'OpenPose', 'Firebase'],
+        theme: 'primary',
+        heroImage: 'bg-gradient-to-br from-primary/20 to-background',
+        summary: 'A cross-platform fashion tech platform connecting store owners, attendants, and customers. Built a custom Computer Vision Measurement API using OpenPose to extract body measurements from 2D photos, enabling virtual outfit fitting without physical try-ons. Includes R&D on SMPLX 3D body mesh generation.',
+        stats: [
+            { label: 'Measurement Method', value: 'Computer Vision', icon: Cpu },
+            { label: 'Platform', value: 'Cross-Platform', icon: Layers },
+            { label: 'Body Mesh', value: 'SMPLX R&D', icon: Sparkles },
+        ],
+        challenges: [
+            "Customers could not try on clothes virtually without accurate body measurements.",
+            "Manual measurement collection was friction-heavy and inconsistent across store locations.",
+            "Multi-role platform needed to serve store owners, store attendants, and customers simultaneously with different access levels.",
+            "Real-time inventory tracking across multiple vendor stores was unmanaged."
+        ],
+        solutions: [
+            {
+                title: 'Computer Vision Measurement API',
+                description: 'A custom API using OpenPose extracts body measurements from standard 2D photos. Customers submit a photo and receive accurate measurements instantly, enabling virtual fitting without physical presence in the store.',
                 icon: Cpu
             },
             {
-                title: 'Dynamic Creative Optimization (DCO)',
-                description: 'A custom pipeline assembled copy, imagery, and CTAs in real-time based on the user\'s context (Time, Location, Device). Investors saw data-heavy visuals; Creatives saw abstract 3D art.',
-                icon: Layers
-            },
-            {
-                title: 'Sentiment Feedback Loop',
-                description: 'The system analyzed comment sentiment and click patterns to automatically "kill" low-performing variants and mutate high-performers into new, optimized ads without human intervention.',
-                icon: Globe
-            }
-        ]
-    },
-    {
-        id: 'edu-portal',
-        title: 'EduPortal System',
-        subtitle: 'Comprehensive School Management Platform',
-        category: 'EdTech Platform',
-        tags: ['React', 'Node.js', 'FinTech'],
-        theme: 'primary',
-        heroImage: 'bg-gradient-to-br from-primary/20 to-background',
-        summary: 'A holistic digital ecosystem transforming how educational institutions operate. From automating complex fee structures to instant academic reporting, EduPortal connects administration, teachers, and parents in real-time.',
-        stats: [
-            { label: 'Revenue Collection', value: '+22%', icon: Banknote },
-            { label: 'Admin Time Saved', value: '150 hrs/term', icon: Zap },
-            { label: 'Schools Onboarded', value: '50+', icon: GraduationCap },
-        ],
-        challenges: [
-            "Revenue Leakage: Manual fee collection and receipting led to significant uncollected revenue and fraud.",
-            "Data Silos: Teachers used disparate spreadsheets, making report card generation a multi-week manual nightmare.",
-            "Parent Disconnect: Parents had zero visibility into student attendance, performance, or fee balances until end of term."
-        ],
-        solutions: [
-            {
-                title: 'Smart Finance Core',
-                description: 'Automated financial reconciliation. The system integrates directly with mobile money (M-Pesa) and banking APIs, automatically reconciling payments to student accounts and sending digital receipts instantly.',
-                icon: Banknote
-            },
-            {
-                title: 'The Academic Engine',
-                description: 'Instant academic analysis. Teachers enter raw marks once; the system automatically calculates grades, class ranks, and streams reports, reducing end-of-term workload by 90%.',
-                icon: GraduationCap
-            },
-            {
-                title: 'Parent Connect App',
-                description: 'Real-time transparency. Parents receive instant push notifications for school entry/exit (via biometrics), exam results, and fee balances, fostering trust and accountability.',
-                icon: Bell
-            }
-        ]
-    },
-    {
-        id: 'growth-dashboard',
-        title: 'Growth Dashboard',
-        subtitle: 'Unified Revenue Intelligence',
-        category: 'Analytics Platform',
-        tags: ['D3.js', 'Python', 'BigQuery'],
-        theme: 'accent',
-        heroImage: 'bg-gradient-to-br from-accent/20 to-background',
-        summary: 'Marketing data was scattered across Facebook, Google, and CRM, leading to decisions based on gut feeling rather than facts. We built a unified engine that tracks the dollar journey from first click to final sale.',
-        stats: [
-            { label: 'Ad Waste Cut', value: '30%', icon: Activity },
-            { label: 'Reporting Time', value: '-95%', icon: Zap },
-            { label: 'Revenue Growth', value: '3x YoY', icon: LineChart },
-        ],
-        challenges: [
-            "The Attribution Black Box: Clients knew marketing worked, but not which half. High-value leads were often misattributed to the wrong channel.",
-            "Spreadsheet Hell: Weekly reporting took 15 hours of manual data pasting, resulting in stale data by the time it reached decision makers.",
-            "Vanity Metrics: Agencies reported on 'Clicks' and 'Impressions', masking the fact that Cost Per Acquisition (CPA) was rising dangerously."
-        ],
-        solutions: [
-            {
-                title: 'Single Source of Truth',
-                description: 'A custom ETL pipeline aggregating data from Meta, Google Ads, LinkedIn, and HubSpot into a centralized warehouse, ensuring all teams look at the same numbers.',
-                icon: Database
-            },
-            {
-                title: 'Full-Funnel Attribution',
-                description: 'We implemented server-side tracking to connect ad clicks to offline CRM conversions, revealing the true ROI and Lifetime Value (LTV) of every campaign.',
-                icon: Target
-            },
-            {
-                title: 'Actionable Anomaly Detection',
-                description: 'Automated alerts trigger when CPA spikes or Return on Ad Spend (ROAS) dips below threshold, allowing for immediate course correction/budget reallocation.',
-                icon: Activity
-            }
-        ]
-    },
-    {
-        id: 'retail-connect',
-        title: 'Retail Connect',
-        subtitle: 'Intelligent Inventory & POS System',
-        category: 'Enterprise System',
-        tags: ['React', 'Node.js', 'PostgreSQL', 'POS'],
-        theme: 'primary',
-        heroImage: 'bg-gradient-to-br from-primary/20 to-background',
-        summary: 'A comprehensive retail operating system designed for multi-location businesses. Retail Connect unifies inventory management, point-of-sale, and business intelligence into a single platform, giving shop owners total control over their operations.',
-        stats: [
-            { label: 'Inventory Accuracy', value: '99%', icon: ShieldCheck },
-            { label: 'Sales Uplift', value: '+20%', icon: LineChart },
-            { label: 'Stockouts Reduced', value: '-40%', icon: ArrowRight },
-        ],
-        challenges: [
-            "Blind Inventory: Shop owners lacked real-time visibility into stock levels, leading to overstocking or lost sales.",
-            "Theft & Pilferage: Unaccounted stock loss was untraceable without a digital audit trail.",
-            "Multi-Store Chaos: Managing stock transfers and reporting across different locations was a logistical nightmare."
-        ],
-        solutions: [
-            {
-                title: 'Centralized Command',
-                description: 'A single dashboard to view stock levels, sales performance, and staff activity across all branches in real-time.',
-                icon: Layers
-            },
-            {
-                title: 'Smart Replenishment',
-                description: 'Predictive algorithms analyze sales velocity and seasonal trends to automatically generate restocking orders before stock runs out.',
-                icon: BarChart3
-            },
-            {
-                title: 'POS Integration',
-                description: 'A seamless checkout experience that automatically updates inventory, manages customer loyalty, and generates detailed sales reports.',
-                icon: ShoppingBag
-            }
-        ]
-    },
-    {
-        id: 'food-baze',
-        title: 'Food Baze',
-        subtitle: 'Direct Farm-to-Hotel Supply Network',
-        category: 'Agri-Tech Platform',
-        tags: ['Mobile App', 'Logistics', 'Social Impact'],
-        theme: 'accent',
-        heroImage: 'bg-gradient-to-br from-accent/20 to-background',
-        summary: 'Revolutionizing the food supply chain by connecting farmers directly to hotels. Food Baze eliminates brokers to increase farmer margins and ensures fresh produce for hotels, while simultaneously fighting food waste through an integrated donation network.',
-        stats: [
-            { label: 'Food Waste Reduced', value: '60%', icon: Sparkles },
-            { label: 'Farmer Income', value: '+35%', icon: Banknote },
-            { label: 'Delivery Time', value: '< 12 Hrs', icon: Truck },
-        ],
-        challenges: [
-            "The Broker Tax: Farmers were losing significant margin to middlemen, while hotels paid inflated prices for produce.",
-            "Food Waste: Excess produce often rotted in transit or storage before finding a buyer.",
-            "Supply Unreliability: Hotels struggled to get consistent quality and timely deliveries from informal networks."
-        ],
-        solutions: [
-            {
-                title: 'Direct Connect Marketplace',
-                description: 'A transparent platform where hotels order directly from verified local farmers, ensuring fair prices and fresher produce.',
+                title: 'Multi-Role Flutter App',
+                description: 'A single Flutter application with role-based access for store owners (inventory and analytics), attendants (stock management and customer service), and customers (browsing, fitting, and ordering).',
                 icon: Users
             },
             {
-                title: 'Smart Logistics',
-                description: 'Integrated delivery management system that optimizes routes to ensure produce moves from farm to kitchen within hours.',
-                icon: Map
-            },
-            {
-                title: 'Zero-Waste Protocol',
-                description: 'An automated alert system that identifies near-expiry stock or excess harvest and coordinates instant donations to partner NGOs.',
-                icon: Heart
+                title: '3D Body Mesh R&D',
+                description: 'Research and development on SMPLX 3D body mesh generation to enable photorealistic virtual outfit overlay — laying the groundwork for a full virtual fitting room experience.',
+                icon: Sparkles
             }
         ]
-    }
+    },
+    {
+        id: 'stratum',
+        title: 'Stratum',
+        subtitle: 'AI Personal Finance Tracker',
+        category: 'Mobile App',
+        tags: ['Flutter', 'Dart', 'OpenAI', 'Android', 'M-Pesa'],
+        theme: 'accent',
+        heroImage: 'bg-gradient-to-br from-accent/20 to-background',
+        summary: 'Android app that automatically reads M-Pesa SMS notifications, parses every transaction without manual input, and generates monthly AI-powered financial analysis. Built to eliminate the friction of manual financial tracking for M-Pesa users in Kenya. Open the app — your finances are already there. Live on Google Play Store.',
+        stats: [
+            { label: 'Manual Input Required', value: 'Zero', icon: Zap },
+            { label: 'Platform', value: 'Google Play', icon: Smartphone },
+            { label: 'Analysis', value: 'AI-Powered', icon: Sparkles },
+        ],
+        challenges: [
+            "M-Pesa users in Kenya make dozens of transactions monthly but have no automatic way to track them.",
+            "Manual financial tracking apps require tedious data entry that most users abandon within days.",
+            "Existing finance apps were not built for M-Pesa-first users and required connecting bank accounts.",
+            "Monthly financial patterns were invisible without significant manual reconciliation effort."
+        ],
+        solutions: [
+            {
+                title: 'Automatic SMS Parsing',
+                description: 'The app reads M-Pesa SMS notifications in the background using the Android SMS API. Every transaction — send money, receive money, buy goods, pay bill — is parsed and categorised automatically without any user input.',
+                icon: Smartphone
+            },
+            {
+                title: 'AI Financial Analysis',
+                description: 'At the end of each month, OpenAI generates a personalised financial analysis: spending patterns, category breakdowns, unusual transactions, and actionable insights based on the user\'s actual transaction history.',
+                icon: Sparkles
+            },
+            {
+                title: 'Zero-Friction Design',
+                description: 'No account linking, no manual entry, no onboarding friction. Install the app, grant SMS permission, and every past and future M-Pesa transaction is immediately visible and categorised.',
+                icon: Zap
+            }
+        ]
+    },
+    {
+        id: 'number-your-days',
+        title: 'Number Your Days',
+        subtitle: 'AI Journaling App',
+        category: 'Mobile App',
+        tags: ['Flutter', 'Firebase', 'Gemini AI', 'Android'],
+        theme: 'primary',
+        heroImage: 'bg-gradient-to-br from-primary/20 to-background',
+        summary: 'Intentional journaling app for Android using a tiered AI analysis system. Daily insights with Gemini Flash, monthly and yearly synthesis with Gemini Pro. A summarisation chaining strategy reduces token usage by ~98% versus naive approaches while maintaining full analytical depth. Live on Google Play Store.',
+        stats: [
+            { label: 'Token Reduction', value: '~98%', icon: Zap },
+            { label: 'Analysis Tiers', value: '3 Levels', icon: Layers },
+            { label: 'Platform', value: 'Google Play', icon: Smartphone },
+        ],
+        challenges: [
+            "Journaling apps provide no feedback or reflection — users write into a void with no insight returned.",
+            "Naive AI analysis of long journal histories is prohibitively expensive in token usage.",
+            "Daily, monthly, and yearly insights require different levels of analytical depth and context.",
+            "Users needed meaningful synthesis of their personal growth without exposing full journal content unnecessarily."
+        ],
+        solutions: [
+            {
+                title: 'Tiered AI Analysis',
+                description: 'Three distinct analysis levels: Gemini Flash processes daily entries for quick insights, Gemini Pro synthesises monthly patterns into deeper reflections, and yearly analysis produces a comprehensive personal growth narrative.',
+                icon: Layers
+            },
+            {
+                title: 'Summarisation Chaining',
+                description: 'Instead of sending full journal history to the AI on every request, a chaining strategy progressively summarises past entries. This reduces token usage by approximately 98% versus naive approaches while preserving full analytical depth.',
+                icon: Zap
+            },
+            {
+                title: 'Intentional Design',
+                description: 'The app is built around deliberate reflection — prompts encourage meaningful entries, and AI feedback is timed to reinforce the journaling habit rather than interrupt it.',
+                icon: BookOpen
+            }
+        ]
+    },
+    {
+        id: 'mydrop',
+        title: 'mydrop',
+        subtitle: 'Real-Time Delivery Tracking Platform',
+        category: 'Logistics Platform',
+        tags: ['Node.js', 'PostgreSQL', 'React', 'Real-time'],
+        theme: 'accent',
+        heroImage: 'bg-gradient-to-br from-accent/20 to-background',
+        summary: 'Real-time delivery tracking platform built for Kenyan SMEs. A manager-to-rider-to-customer tracking flow with PIN confirmation on delivery. Managers dispatch, riders navigate, customers track their order in real time — and confirm receipt with a PIN. Built with an orange/navy design system.',
+        stats: [
+            { label: 'Tracking', value: 'Real-Time', icon: Map },
+            { label: 'Confirmation', value: 'PIN-Based', icon: ShieldCheck },
+            { label: 'User Roles', value: '3 Roles', icon: Users },
+        ],
+        challenges: [
+            "Kenyan SMEs running delivery operations had no visibility into rider location or delivery status.",
+            "Customers had no way to track their orders in real time, leading to repeated inquiry calls.",
+            "Delivery confirmation was verbal or paper-based with no tamper-proof record.",
+            "Managers had no centralised view of active deliveries, rider availability, or delivery history."
+        ],
+        solutions: [
+            {
+                title: 'Three-Role Tracking Flow',
+                description: 'Managers dispatch orders and monitor all active deliveries from a central dashboard. Riders receive assignments, navigate to destinations, and update delivery status. Customers track their order on a live map from dispatch to doorstep.',
+                icon: Users
+            },
+            {
+                title: 'PIN Confirmation on Delivery',
+                description: 'Every delivery is confirmed with a PIN provided to the customer at order time. The rider enters the PIN on delivery, creating a tamper-proof digital record that the correct person received the correct order.',
+                icon: ShieldCheck
+            },
+            {
+                title: 'Real-Time Location Updates',
+                description: 'Rider location updates in real time on both the manager dashboard and the customer tracking view. Customers see exactly where their delivery is without needing to call — reducing support overhead for SME owners.',
+                icon: Map
+            }
+        ]
+    },
 ];
 
 export const getCaseStudy = (id: string) => {
