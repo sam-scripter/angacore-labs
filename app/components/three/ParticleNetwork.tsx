@@ -116,16 +116,12 @@ function Particles() {
       <points ref={meshRef}>
         <bufferGeometry>
           <bufferAttribute
-            attach="attributes-position"
-            count={particleCount}
-            array={positions}
-            itemSize={3}
-          />
+          attach="attributes-position"
+          args={[positions, 3]}
+        />
           <bufferAttribute
             attach="attributes-color"
-            count={particleCount}
-            array={colors}
-            itemSize={3}
+            args={[colors, 3]}
           />
         </bufferGeometry>
         <pointsMaterial
@@ -141,15 +137,11 @@ function Particles() {
         <bufferGeometry>
           <bufferAttribute
             attach="attributes-position"
-            count={linePositions.length / 3}
-            array={linePositions}
-            itemSize={3}
+            args={[linePositions, 3]}
           />
           <bufferAttribute
             attach="attributes-color"
-            count={lineColors.length / 3}
-            array={lineColors}
-            itemSize={3}
+            args={[lineColors, 3]}
           />
         </bufferGeometry>
         <lineBasicMaterial

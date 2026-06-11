@@ -1,3 +1,6 @@
+// particle network with floating shapes, using react-three-fiber and Three.js
+// ParticleNetwork.tsx
+
 "use client";
 import { useRef, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
