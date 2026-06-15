@@ -1,0 +1,32 @@
+# infrastructure/docker/docker-compose.angacore.yml
+services:
+  web:
+    build:
+      context: ../../app
+      dockerfile: Dockerfile
+    container_name: angacore_web
+    restart: unless-stopped
+    expose:
+      - "3000"
+    networks:
+      - angacore_net
+
+  db:
+    image: postgres:15-alpine
+    container_name: angacore_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: angacore
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - angacore_pgdata:/var/lib/postgresql/data
+    networks:
+      - angacore_net
+
+volumes:
+  angacore_pgdata:
+
+networks:
+  angacore_net:
+    driver: bridge

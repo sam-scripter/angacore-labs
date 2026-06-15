@@ -1,0 +1,26 @@
+# infrastructure/docker/docker-compose.n8n.yml
+services:
+  n8n:
+    image: n8nio/n8n
+    container_name: n8n
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    environment:
+      - NODE_ENV=production
+      - N8N_HOST=n8n.angacorelabs.com
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=https
+      - WEBHOOK_URL=https://n8n.angacorelabs.com/
+      - N8N_EDITOR_BASE_URL=https://n8n.angacorelabs.com/
+      - N8N_SECURE_COOKIE=false
+      - TZ=Africa/Nairobi
+      - GENERIC_TIMEZONE=Africa/Nairobi
+    volumes:
+      - /home/ubuntu/.n8n:/home/node/.n8n
+    networks:
+      - n8n_net
+
+networks:
+  n8n_net:
+    driver: bridge
