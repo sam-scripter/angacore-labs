@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Header } from "@/components/public/Header";
 import { Footer } from "@/components/public/Footer";
@@ -17,16 +17,17 @@ import {
   Send,
   Loader2
 } from "lucide-react";
-import emailjs from '@emailjs/browser';
 import { toast } from "sonner";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ParticleNetwork } from "@/components/three/ParticleNetwork";
 
+export const metadata = {
+  title: "Contact Us | AngaCore Labs",
+  description: "Get in touch with AngaCore Labs. Let's discuss your project.",
+};
 
 const Contact = () => {
   const router = useRouter();
-  const form = useRef<HTMLFormElement>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     user_name: "",
@@ -38,28 +39,30 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.current) return;
-
     setIsSubmitting(true);
 
     try {
-      await emailjs.sendForm(
-        'service_gnah1cq',
-        'template_7tvphc9',
-        form.current,
-        '6Q9RmEA6DMfPxLNdK'
-      );
-      toast.success("Message sent successfully!");
-      setFormData({
-        user_name: "",
-        user_lastname: "",
-        user_email: "",
-        service: "",
-        message: "",
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
       });
+
+      if (response.ok) {
+        toast.success("Message sent! We'll get back to you within 24 hours.");
+        setFormData({
+          user_name: "",
+          user_lastname: "",
+          user_email: "",
+          service: "",
+          message: "",
+        });
+      } else {
+        toast.error("Something went wrong. Please email us directly at hello@angacorelabs.com");
+      }
     } catch (error) {
-      console.error("EmailJS Error:", error);
-      toast.success("Message sent! (Simulation)");
+      console.error("Contact form error:", error);
+      toast.error("Something went wrong. Please email us directly at hello@angacorelabs.com");
     } finally {
       setIsSubmitting(false);
     }
@@ -117,7 +120,7 @@ const Contact = () => {
                 viewport={{ once: true }}
                 className="lg:col-span-3"
               >
-                <form ref={form} onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="user_name">First Name</Label>
