@@ -1,5 +1,5 @@
-// OPS Dashboard Home — summary cards showing business at a glance.
-// Temporary placeholder until we build the full stats page.
+// OPS Dashboard Home — entry point at /ops
+// Summary placeholder until full stats are built
 
 export default function OpsDashboard() {
   return (

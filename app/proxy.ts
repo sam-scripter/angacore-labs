@@ -1,9 +1,12 @@
+// proxy.ts — replaces middleware.ts (Next.js 16 convention)
+// Protects all /ops routes by checking for a valid session cookie.
+// Unauthenticated requests are redirected to /ops-login.
+
 import { NextRequest, NextResponse } from 'next/server';
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   
-  // Only protect /ops routes
   if (pathname.startsWith('/ops')) {
     const session = request.cookies.get('ops_session');
     
