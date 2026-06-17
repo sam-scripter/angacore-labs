@@ -16,6 +16,7 @@ services:
       - N8N_SECURE_COOKIE=false
       - TZ=Africa/Nairobi
       - GENERIC_TIMEZONE=Africa/Nairobi
+      - NEXT_PUBLIC_SITE_URL=https://angacorelabs.com
     volumes:
       - /home/ubuntu/.n8n:/home/node/.n8n
     networks:
