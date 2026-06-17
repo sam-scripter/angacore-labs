@@ -3,8 +3,6 @@
 // The sidebar stays fixed while page content scrolls on the right.
 
 import Link from "next/link";
-import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
 import {
   LayoutDashboard,
   Users,
@@ -26,12 +24,6 @@ export default async function OpsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const cookieStore = await cookies();
-  const session = cookieStore.get('ops_session');
-  if (session?.value !== process.env.OPS_SESSION_TOKEN) {
-    redirect('/ops-login');
-  }
-
   return (
     <div className="min-h-screen flex bg-background">
       {/* Sidebar — fixed left panel with nav links */}
