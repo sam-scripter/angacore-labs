@@ -10,6 +10,8 @@ services:
       - "3000"
     environment:
       - CRUST_WEBHOOK_URL=${CRUST_WEBHOOK_URL}
+      - OPS_PASSWORD=${OPS_PASSWORD}
+      - OPS_SESSION_TOKEN=${OPS_SESSION_TOKEN}
     networks:
       - angacore_net
 
