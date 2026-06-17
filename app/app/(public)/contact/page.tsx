@@ -4,7 +4,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Header } from "@/components/public/Header";
 import { Footer } from "@/components/public/Footer";
-import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -21,10 +20,6 @@ import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { ParticleNetwork } from "@/components/three/ParticleNetwork";
 
-export const metadata = {
-  title: "Contact Us | AngaCore Labs",
-  description: "Get in touch with AngaCore Labs. Let's discuss your project.",
-};
 
 const Contact = () => {
   const router = useRouter();
@@ -79,12 +74,6 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen">
-      <SEO
-        title="Contact Us | AngaCore Labs"
-        description="Get in touch with AngaCore Labs. Let's discuss your operational systems, fleet management needs, or growth strategy. Based in Nairobi, Kenya."
-        canonical="https://angacorelabs.com/contact"
-        keywords="contact, AngaCore Labs contact, Nairobi technology company, fleet management Kenya, business software Kenya"
-      />
       <Header />
       <main>
         {/* Hero */}

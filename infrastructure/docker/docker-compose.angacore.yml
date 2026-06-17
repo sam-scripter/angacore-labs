@@ -8,6 +8,8 @@ services:
     restart: unless-stopped
     expose:
       - "3000"
+    environment:
+      - CRUST_WEBHOOK_URL=${CRUST_WEBHOOK_URL}
     networks:
       - angacore_net
 
