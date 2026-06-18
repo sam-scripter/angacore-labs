@@ -10,15 +10,35 @@ import {
   Star,
   Clock
 } from "lucide-react";
+import { Pool } from 'pg';
 
-// Fetch stats server-side
+// Direct database connection — faster than HTTP self-call
+const pool = new Pool({
+  host: process.env.DB_HOST || 'angacore_db',
+  port: parseInt(process.env.DB_PORT || '5432'),
+  database: process.env.DB_NAME || 'angacore',
+  user: process.env.DB_USER || 'postgres',
+  password: process.env.DB_PASSWORD,
+});
+
 async function getStats() {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/ops/stats`, {
-      cache: 'no-store' // Always fresh data
-    });
-    return await res.json();
-  } catch {
+    const result = await pool.query(`
+      SELECT
+        COUNT(*)::int                                          AS total_leads,
+        ROUND(AVG(score)::numeric, 1)                         AS avg_score,
+        COUNT(*) FILTER (WHERE status = 'new')::int           AS new_leads,
+        COUNT(*) FILTER (WHERE status = 'contacted')::int     AS contacted,
+        COUNT(*) FILTER (WHERE status = 'proposal_sent')::int AS proposals_sent,
+        COUNT(*) FILTER (WHERE status = 'won')::int           AS won,
+        COUNT(*) FILTER (WHERE status = 'lost')::int          AS lost,
+        COUNT(*) FILTER (WHERE score >= 9)::int               AS high_score_leads,
+        COUNT(*) FILTER (WHERE created_at >= NOW() - INTERVAL '7 days')::int AS new_this_week
+      FROM leads
+    `);
+    return result.rows[0];
+  } catch (error) {
+    console.error('Stats error:', error);
     return null;
   }
 }
