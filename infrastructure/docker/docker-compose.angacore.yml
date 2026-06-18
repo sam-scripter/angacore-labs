@@ -12,6 +12,11 @@ services:
       - CRUST_WEBHOOK_URL=${CRUST_WEBHOOK_URL}
       - OPS_PASSWORD=${OPS_PASSWORD}
       - OPS_SESSION_TOKEN=${OPS_SESSION_TOKEN}
+      - DB_HOST=angacore_db
+      - DB_PORT=5432
+      - DB_NAME=angacore
+      - DB_USER=postgres
+      - DB_PASSWORD=${DB_PASSWORD}
     networks:
       - angacore_net
 
