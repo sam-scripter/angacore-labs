@@ -31,6 +31,7 @@ type Lead = {
   status: string;
   reason: string;
   notes: string;
+  proposal: string;
   created_at: string;
 };
 
@@ -357,17 +358,17 @@ export default function LeadsPage() {
                             </div>
                           )}
 
-                          {/* Proposal — detected by looking for --- PROPOSAL --- marker in notes */}
-                          {lead.notes && lead.notes.includes('--- PROPOSAL ---') ? (
+                          {/* Proposal — detected by looking for proposal field */}
+                          {lead.proposal ? (
                             <div>
                               <div className="flex items-center justify-between mb-2">
                                 <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
                                   NAMI Proposal
                                 </p>
-                                <CopyProposalButton text={lead.notes.split('--- PROPOSAL ---')[1]?.trim() || ''} />
+                                <CopyProposalButton text={lead.proposal} />
                               </div>
                               <div className="bg-background border border-border rounded-lg p-4 max-h-96 overflow-y-auto">
-                                <ProposalRenderer text={lead.notes.split('--- PROPOSAL ---')[1]?.trim() || ''} />
+                                <ProposalRenderer text={lead.proposal} />
                               </div>
                             </div>
                           ) : lead.notes ? (

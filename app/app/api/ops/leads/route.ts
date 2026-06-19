@@ -26,7 +26,7 @@ export async function GET(request: NextRequest) {
     let query = `
       SELECT 
         id, company_name, website, industry, score, 
-        status, source, reason, notes, created_at, updated_at
+        status, source, reason, notes,proposal, created_at, updated_at
       FROM leads
     `;
     const params: string[] = [];
