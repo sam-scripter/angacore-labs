@@ -13,7 +13,9 @@ import {
   RefreshCw,
   FileText,
   ChevronUp,
-  ChevronDown
+  ChevronDown,
+  Copy,
+  Check
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -69,6 +71,54 @@ function StatusBadge({ status }: { status: string }) {
     <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium border ${styles[status] || styles.new}`}>
       {labels[status] || status}
     </span>
+  );
+}
+
+// Renders markdown-like proposal text with basic formatting
+function ProposalRenderer({ text }: { text: string }) {
+  const lines = text.split('\n');
+  return (
+    <div className="space-y-2 text-sm">
+      {lines.map((line, i) => {
+        if (line.startsWith('# ')) {
+          return <h2 key={i} className="font-display text-lg font-bold mt-4 first:mt-0">{line.replace('# ', '')}</h2>;
+        }
+        if (line.startsWith('## ')) {
+          return <h3 key={i} className="font-semibold text-base mt-3">{line.replace('## ', '')}</h3>;
+        }
+        if (line.startsWith('**') && line.endsWith('**')) {
+          return <p key={i} className="font-semibold">{line.replace(/\*\*/g, '')}</p>;
+        }
+        if (line.trim() === '') {
+          return <div key={i} className="h-1" />;
+        }
+        return <p key={i} className="text-muted-foreground leading-relaxed">{line}</p>;
+      })}
+    </div>
+  );
+}
+
+// Copy proposal to clipboard with feedback
+function CopyProposalButton({ text }: { text: string }) {
+  const [copied, setCopied] = useState(false);
+
+  const copy = async () => {
+    await navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <button
+      onClick={copy}
+      className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors"
+    >
+      {copied ? (
+        <><Check className="w-3 h-3 text-green-500" />Copied</>
+      ) : (
+        <><Copy className="w-3 h-3" />Copy Proposal</>
+      )}
+    </button>
   );
 }
 
@@ -291,30 +341,47 @@ export default function LeadsPage() {
                     </td>
                   </tr>
 
-                  {/* Expanded row — shows reason and notes */}
+                  {/* Expanded row — shows reason, notes, and proposal if available */}
                   {expandedLead === lead.id && (
                     <tr key={`${lead.id}-expanded`} className="bg-secondary/20">
-                      <td colSpan={5} className="px-4 py-3">
-                        <div className="space-y-2">
+                      <td colSpan={5} className="px-4 py-4">
+                        <div className="space-y-4">
+
+                          {/* Why they need us */}
                           {lead.reason && (
                             <div>
-                              <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+                              <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-1">
                                 Why they need us
-                              </span>
-                              <p className="text-sm mt-1">{lead.reason}</p>
+                              </p>
+                              <p className="text-sm">{lead.reason}</p>
                             </div>
                           )}
-                          {lead.notes && (
+
+                          {/* Proposal — detected by looking for --- PROPOSAL --- marker in notes */}
+                          {lead.notes && lead.notes.includes('--- PROPOSAL ---') ? (
                             <div>
-                              <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+                              <div className="flex items-center justify-between mb-2">
+                                <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+                                  NAMI Proposal
+                                </p>
+                                <CopyProposalButton text={lead.notes.split('--- PROPOSAL ---')[1]?.trim() || ''} />
+                              </div>
+                              <div className="bg-background border border-border rounded-lg p-4 max-h-96 overflow-y-auto">
+                                <ProposalRenderer text={lead.notes.split('--- PROPOSAL ---')[1]?.trim() || ''} />
+                              </div>
+                            </div>
+                          ) : lead.notes ? (
+                            <div>
+                              <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-1">
                                 Notes
-                              </span>
-                              <p className="text-sm mt-1 text-muted-foreground">
+                              </p>
+                              <p className="text-sm text-muted-foreground">
                                 {lead.notes.substring(0, 300)}
                                 {lead.notes.length > 300 ? '...' : ''}
                               </p>
                             </div>
-                          )}
+                          ) : null}
+
                           <p className="text-xs text-muted-foreground">
                             Added {new Date(lead.created_at).toLocaleDateString('en-KE', {
                               day: 'numeric', month: 'short', year: 'numeric'
