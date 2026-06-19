@@ -78,22 +78,51 @@ function StatusBadge({ status }: { status: string }) {
 // Renders markdown-like proposal text with basic formatting
 function ProposalRenderer({ text }: { text: string }) {
   const lines = text.split('\n');
+
+  const renderInline = (line: string, key: number) => {
+    // Split on **bold** patterns
+    const parts = line.split(/(\*\*.*?\*\*)/g);
+    return (
+      <p key={key} className="text-muted-foreground leading-relaxed">
+        {parts.map((part, i) =>
+          part.startsWith('**') && part.endsWith('**')
+            ? <strong key={i} className="text-foreground font-semibold">{part.slice(2, -2)}</strong>
+            : <span key={i}>{part}</span>
+        )}
+      </p>
+    );
+  };
+
   return (
-    <div className="space-y-2 text-sm">
+    <div className="space-y-1.5 text-sm">
       {lines.map((line, i) => {
         if (line.startsWith('# ')) {
-          return <h2 key={i} className="font-display text-lg font-bold mt-4 first:mt-0">{line.replace('# ', '')}</h2>;
+          return <h2 key={i} className="font-display text-base font-bold mt-4 first:mt-0 text-foreground">{line.replace('# ', '')}</h2>;
         }
         if (line.startsWith('## ')) {
-          return <h3 key={i} className="font-semibold text-base mt-3">{line.replace('## ', '')}</h3>;
+          return <h3 key={i} className="font-semibold text-sm mt-3 text-foreground border-b border-border pb-1">{line.replace('## ', '')}</h3>;
         }
-        if (line.startsWith('**') && line.endsWith('**')) {
-          return <p key={i} className="font-semibold">{line.replace(/\*\*/g, '')}</p>;
+        if (line.startsWith('- ')) {
+          // Bullet points — also handle inline bold
+          const content = line.replace('- ', '');
+          const parts = content.split(/(\*\*.*?\*\*)/g);
+          return (
+            <div key={i} className="flex gap-2 text-muted-foreground">
+              <span className="text-primary mt-0.5 flex-shrink-0">•</span>
+              <p className="leading-relaxed">
+                {parts.map((part, j) =>
+                  part.startsWith('**') && part.endsWith('**')
+                    ? <strong key={j} className="text-foreground font-semibold">{part.slice(2, -2)}</strong>
+                    : <span key={j}>{part}</span>
+                )}
+              </p>
+            </div>
+          );
         }
         if (line.trim() === '') {
-          return <div key={i} className="h-1" />;
+          return <div key={i} className="h-2" />;
         }
-        return <p key={i} className="text-muted-foreground leading-relaxed">{line}</p>;
+        return renderInline(line, i);
       })}
     </div>
   );
