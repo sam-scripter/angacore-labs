@@ -1,11 +1,11 @@
-// WhatWeDoSection.tsx
-
 "use client";
 
 import { motion } from "framer-motion";
-import { Cog, TrendingUp, Sparkles, CheckCircle2 } from "lucide-react";
+import { Cog, Sparkles, TrendingUp, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 
+// Systems now leads (was third) — this is the dominant offering.
+// "Design & AI" renamed to "AI & Automation" to match its actual description.
 const pillars = [
   {
     icon: Cog,
@@ -17,6 +17,19 @@ const pillars = [
       "Backend systems",
       "Logistics & education platforms",
       "Custom enterprise software",
+    ],
+    color: "primary",
+  },
+  {
+    icon: Sparkles,
+    title: "AI & Automation",
+    description:
+      "We build intelligent automations and AI workflows that eliminate manual overhead.",
+    items: [
+      "AI assistants & chatbots",
+      "Workflow automation",
+      "Internal intelligence tools",
+      "Data analytics integration",
     ],
     color: "primary",
   },
@@ -34,38 +47,19 @@ const pillars = [
     ],
     color: "accent",
   },
-  {
-    icon: Sparkles,
-    title: "Design & AI",
-    description:
-      "We build intelligent automations and AI workflows that eliminate manual overhead.",
-    items: [
-      "AI assistants & chatbots",
-      "Workflow automation",
-      "Internal intelligence tools",
-      "Data analytics integration",
-    ],
-    color: "primary",
-  },
 ];
 
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-    },
+    transition: { staggerChildren: 0.15 },
   },
 };
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5 },
-  },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
 export function WhatWeDoSection() {
@@ -96,18 +90,15 @@ export function WhatWeDoSection() {
           className="grid md:grid-cols-3 gap-8"
         >
           {pillars.map((pillar) => (
-            <motion.div
-              key={pillar.title}
-              variants={itemVariants}
-              className="group"
-            >
+            <motion.div key={pillar.title} variants={itemVariants} className="group">
               <Link href="/services" className="block h-full">
                 <div className="bg-card rounded-2xl p-8 h-full border border-border/50 hover:border-primary/30 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col">
                   <div
-                    className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 ${pillar.color === "accent"
+                    className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 ${
+                      pillar.color === "accent"
                         ? "bg-accent/10 text-accent"
                         : "bg-primary/10 text-primary"
-                      }`}
+                    }`}
                   >
                     <pillar.icon size={28} />
                   </div>
@@ -122,9 +113,7 @@ export function WhatWeDoSection() {
                     </span>
                   )}
 
-                  <p className="text-muted-foreground mb-6">
-                    {pillar.description}
-                  </p>
+                  <p className="text-muted-foreground mb-6">{pillar.description}</p>
 
                   <ul className="space-y-3 mt-auto">
                     {pillar.items.map((item) => (

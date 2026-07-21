@@ -1,3 +1,5 @@
+// Footer.tsx
+
 import Link from "next/link";
 import { Mail, Phone, MapPin } from "lucide-react";
 
@@ -8,9 +10,9 @@ const footerLinks = {
     { name: "Contact", href: "/contact" },
   ],
   featuredWork: [
-    { name: "Fleet Command", href: "/work/fleet-command" },
-    { name: "Anga Nova", href: "/work/anga-nova-launch" },
-    { name: "EduPortal", href: "/work/edu-portal" },
+    { name: "KSG ICT Platform", href: "/work/ksg-ict-platform" },
+    { name: "Uasin Gishu Fleet System", href: "/work/uasin-gishu-fleet" },
+    { name: "mydrop", href: "/work/mydrop" },
   ],
 };
 

@@ -9,6 +9,7 @@ import { AngaNovaSection } from "@/components/public/sections/AngaNovaSection";
 import { ProcessSection } from "@/components/public/sections/ProcessSection";
 import { TrustSection } from "@/components/public/sections/TrustSection";
 import { CTASection } from "@/components/public/sections/CTASection";
+import { SocialProofSection } from "@/components/public/sections/SocialProofSection";
 
 const Index = () => {
   return (
@@ -17,10 +18,11 @@ const Index = () => {
       <main>
         <HeroSection />
         <WhatWeDoSection />
+        <SocialProofSection />
         <SystemsSection />
-        <AngaNovaSection />
         <ProcessSection />
         <TrustSection />
+        <AngaNovaSection />
         <CTASection />
       </main>
       <Footer />
