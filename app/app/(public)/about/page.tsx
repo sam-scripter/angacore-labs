@@ -26,7 +26,7 @@ const aboutFaq = [
   },
   {
     question: "What is AngaNova?",
-    answer: "AngaNova is the growth and branding division of AngaCore Labs. It provides strategic positioning, brand development, and growth systems that create clarity before execution."
+    answer: "AngaNova is the growth and branding division of AngaCore Labs. It provides strategic positioning, brand development, and growth systems that create clarity before execution. This is majorly for founders and scaling businesses looking to grow their brand and market presence."
   },
   {
     question: "How do I contact AngaCore Labs?",
