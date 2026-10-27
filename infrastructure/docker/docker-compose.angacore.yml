@@ -19,6 +19,7 @@ services:
       - DB_PASSWORD=${DB_PASSWORD}
     networks:
       - angacore_net
+      - edge
 
   db:
     image: postgres:15-alpine
@@ -39,3 +40,6 @@ volumes:
 networks:
   angacore_net:
     driver: bridge
+  edge:
+    name: edge_angacore
+    external: true
